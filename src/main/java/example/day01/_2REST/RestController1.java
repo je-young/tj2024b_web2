@@ -15,7 +15,7 @@ public class RestController1 {
 
     // [1] [GET] http://localhost:8080/day01/doget
     //  @RequestMapping( value = "/httl주소정의" , method = RequestMethod.사용할HTTP메소드 )
-    //  - 1. value 속성에 매핑할 HTTP 주소 정의한다. * http://localhost:8080/(http주소정의)
+    //  - 1. value 속성에 매핑할 HTTP 주소 정의한다. * http://localhost:8080/(http)
     //      value = "/day01/doget"  ===> http://localhost:8080/day01/doget
     //  - 2. method = RequestMethod.POST/GET/PUT/DELETE 선택해서 사용한다.
     @RequestMapping( value = "/day01/doget" , method = RequestMethod.GET )
