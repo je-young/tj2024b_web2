@@ -6,8 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+// @Controller // 1. bean(객체) 등록 2. HTTP 서블릿 지원
 @RestController
-@RequestMapping("/day01/task")
+@RequestMapping("/day01/task") // 클래스내 메소드들의 공통 URL 지정
 public class BoardController {
 
     // 임시 데이터 저장용 리스트

@@ -16,7 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // 스캔 어노테이션 : @Component @Controller @RestController @Service @Repository @Mapper 등등 주로 MVC 어노테이션
 public class AppStart {
     public static void main(String[] args) {
-        SpringApplication.run( AppStart.class);
+        SpringApplication.run(AppStart.class);
         // 1. Spring 컨테이너(메모리) 초기화됨
         // 2. 자동 설정이 적용됨
         // 3. 내장형 웹서버(tomcat) 실행됨
