@@ -1,0 +1,60 @@
+[ DAO : JDBC ] java database connection
+    - 자바에서 데이터베이스 와 상호작용 하기 위한 java 표준 라이브러리
+    - SQL 직접 작성하고 실행하며 데이터베이스 연결과 관리 한다.
+    - 주요 인터페이스
+        1. Connection           : 데이터베이스 연결 관리
+        2. PreparedStatement    : SQL 실행 과 매개변수 관리
+        3. ResultSet            : SQL 실행 결과(조회 데이터) 관리
+
+[ 마이바티스 ] MyBatis
+    - JDBC 보다 조금더 다양한 기능을 제공하는 프레임워크이다.
+    - 객체와 데이터베이스 간의 매핑을 자동화 한다.
+    - 주요 특징
+        1. SQL 매핑 : SQL을 XML파일에 작성하여 자바 객체와 매핑
+        2. 결과 매핑 : SQL 쿼리 결과를 자동으로 자바 객체로 자동 타입변환
+        3. 유연성 : 복잡한 쿼리 와 제어도 가능하다.
+        4. 스프링과 통합 가능하다.
+    1. 프로젝트 MyBatis 설치
+        (1) 마이바티스
+        implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+        (2) MYSQL JDBC
+        runtimeOnly 'com.mysql:mysql-connector-j'
+
+    2. application.properties ( 스프링 프레임워크가 실행될때 읽어드리는 설정파일 )
+       위치: src -> main -> resources 폴더 하위에 존재 해야한다.
+       1. [ JDBC 연동 ]
+        spring.datasource.url = jdbc:mysql://IP주소:PORT번호/DB이름
+        spring.datasource.username=DB계정명
+        spring.datasource.password=DB계정비밀번호
+       2. [ XML 파일 경로 설정 ] 마이바티스는 XML 파일 이용하여 자바 객체와 매핑하느 기술
+        * 주로 resources 폴더 하위에서 작업한다.
+        * .xml 파일이 존재하는 경로를 설정하는 코드
+        mybatis.mapper-locations = classpath:(resource)하위폴더경로설정
+
+    3. 자바 와 매핑
+        1. xml 파일 만들기
+            -> 설정한 마이바티스 xml파일 경로에 .xml 파일 만든다.
+        2. xml 파일 상단에 mybatis 연동 코드 작성
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+        3. 해당 xml 과 연동할 인터페이스명 설정
+            <mapper namespace ="매핑할인터페이스명">  </mapper>
+            - 매핑할 인터페이스명이 위치한 경로까지 포함한다.
+            - (src -> main -> java)생략하고 폴더명.폴더명.폴더명.인터페이스명
+
+        4. <mapper> </mapper> 사이에 SQL 마크업 이용한 SQL 작성한다.
+            1. DML 마크업 지원한다.
+            <insert> </insert>
+            <select> </select>
+            <update> </update>
+            <delete> </delete>
+
+            2. 쿼리의 매개변수 지원한다.
+                <마크업명 parameterType="매개변수DTO">
+                    #{ 매개변수명 }
+                </마크업명>
+                * 주의할점 : DTO에 존재하지 않는 매개변수명은 자동매핑이 불가능하다.
+                !!! DTO 필드명/멤버변수명 과 매개변수명 은 동일해야 한다.

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="example.day03._과제.BoardMapper">
+
+    <!-- 1. 글쓰기 -->
+    <insert id="save" parameterType="example.day03._과제.BoardDto">
+        insert into board ( title , content ) values ( #{title} , #{content} )
+    </insert>
+
+    <!-- 2. 전체 글 조회 -->
+    <select id="findall" resultType="example.day03._과제.BoardDto">
+        select bno, title, content from board
+    </select>
+
+    <!-- 3. 개별 글 조회 -->
+    <select id="find" parameterType="int"
+            resultType="example.day03._과제.BoardDto">
+        select bno, title, content from board where bno = #{bno}
+    </select>
+
+    <!-- 4. 글 수정 -->
+    <update id="update" parameterType="example.day03._과제.BoardDto">
+        update board set title = #{title} , content = #{content} where bno = #{bno}
+    </update>
+
+    <!-- 5. 개별 글 삭제 -->
+    <delete id="delete" parameterType="int">
+        delete from board where bno = #{bno}
+    </delete>
+</mapper>
