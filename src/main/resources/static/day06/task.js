@@ -1,11 +1,11 @@
 console.log('task js open');
 
 // 1. let과 const를 사용해서 name(이름)과 age(나이)를 저장하고 값을 출력해 보세요.
-const constName = '송제영';
-const constAge = 48;
+const constName = '길똥이';
+const constAge = 40;
 console.log('Const Name : ' + constName, 'Const Age : ' + constAge);
 
-let letName = '홍길동';
+let letName = '길뚱이';
 let letAge = 35;
 console.log('Let Name : ' + letName, 'Let Age : ' + letAge);
 
