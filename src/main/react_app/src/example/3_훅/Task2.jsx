@@ -67,6 +67,8 @@ export default function Task2() {
           </tr>
         </thead>
         <tbody>
+          {/* 연락처 목록 출력 */}
+          {/* map 함수로 contacts 배열을 순회하며 테이블 행 생성 */}
           {contacts.map((contact, index) => (
             <tr key={index}>
               <td>{contact.name}</td>
