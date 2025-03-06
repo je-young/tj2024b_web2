@@ -49,3 +49,7 @@ const root = createRoot(document.querySelector('#root'));
 // day03 : 과제2
 import Task1 from './example/3_훅/Task1.jsx';
 root.render(<Task1 />);
+
+// day03 : 과제3
+import Task2 from './example/3_훅/Task2.jsx';
+root.render(<Task2 />);
