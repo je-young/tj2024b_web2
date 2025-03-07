@@ -12,7 +12,6 @@ export default function Task2() {
   // 연락처 목록을 저장할 state
   const [contacts, setContacts] = useState([]); // state변수 선언
   // 입력값을 관리할 state
-
   const [name, setName] = useState(''); // state변수 선언
   const [phone, setPhone] = useState(''); // state변수 선언
 

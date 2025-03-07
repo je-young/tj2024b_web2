@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from '../../react_app/src/App.jsx';
+// import './index.css';
+// import App from '../../react_app/src/App.jsx';
 
 // 1. 기본 코드 주석처리
 // createRoot(document.getElementById('root')).render(
@@ -47,9 +47,21 @@ const root = createRoot(document.querySelector('#root'));
 //root.render(<Example3 />);
 
 // day03 : 과제2
-import Task1 from './example/3_훅/Task1.jsx';
-root.render(<Task1 />);
+//import Task1 from './example/3_훅/Task1.jsx';
+//root.render(<Task1 />);
 
 // day03 : 과제3
-import Task2 from './example/3_훅/Task2.jsx';
-root.render(<Task2 />);
+//import Task2 from './example/3_훅/Task2.jsx';
+//root.render(<Task2 />);
+
+// day03 : 과제3-강의
+//import Task1 from './example/3_훅/Task2_강의.jsx';
+//root.render(<Task1 />);
+
+// day04 :
+//import Example1 from './example/4_훅2/Example1.jsx';
+//root.render(<Example1 />);
+
+// day04 :
+import App from './example/5_라우터/Example1.jsx';
+root.render(<App />);
