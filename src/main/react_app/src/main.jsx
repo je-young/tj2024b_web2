@@ -63,5 +63,17 @@ const root = createRoot(document.querySelector('#root'));
 //root.render(<Example1 />);
 
 // day04 :
-import App from './example/5_라우터/Example1.jsx';
-root.render(<App />);
+//import App from './example/5_라우터/Example1.jsx';
+//root.render(<App />);
+
+// day05 : axios
+//import Example1 from './example/6_AXIOS/Example1.jsx';
+//root.render(<Example1 />);
+
+// day05 : axios 2
+//import Example2 from './example/6_AXIOS/Example2.jsx';
+//root.render(<Example2 />);
+
+// day05 : 과제4
+import Task from './example/6_AXIOS/Task.jsx';
+root.render(<Task />);
