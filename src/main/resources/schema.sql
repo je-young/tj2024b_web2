@@ -23,4 +23,13 @@ CREATE TABLE student_score
     CONSTRAINT FOREIGN KEY (sno) REFERENCES student (sno) -- 외래키 제약 조건 추가
 );
 
+-- ---------------------- day08 ---------------------------------- --
+DROP TABLE if EXISTS productsample;
+create table productsample(
+   id int auto_increment ,
+    name varchar(20) ,
+    price int ,
+    comment longtext ,
+    constraint primary key ( id )
+);
 -- ---------------------- ------ ---------------------------------- --
