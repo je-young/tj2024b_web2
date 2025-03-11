@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController // 스프링 빈 등록
 @RequestMapping("/day08/products") // 공통 URL : http://localhost:8080/day08/products
+@CrossOrigin("http://localhost:5173") // 리액트 포트 도메인 허용
 public class ProductController {
     // [1] 서비스 메소드를 사용하기 위한 객체 주입
     @Autowired private ProductService productService;
@@ -37,5 +38,13 @@ public class ProductController {
         System.out.println("productDto = " + productDto);
         return productService.onUpdate(productDto);
     } // end onUpdate
+
+    // [3] 제품삭제
+    @DeleteMapping("") // (1) http://localhost:8080/day08/products
+    public boolean onDelete(@RequestParam int id) { // (2) http://localhost:8080/day08/products?id=제품번호
+        System.out.println("ProductController.onDelete");
+        System.out.println("id = " + id);
+        return productService.onDelete(id);
+    }
 
 } // end class

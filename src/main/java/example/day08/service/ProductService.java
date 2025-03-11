@@ -28,6 +28,13 @@ public class ProductService {
         System.out.println("ProductService.onUpdate");
         System.out.println("productDto = " + productDto);
         return productMapper.onUpdate(productDto);
-    }
+    } // end onUpdate
+
+    // [4] 제품삭제
+    public boolean onDelete(int id) {
+        System.out.println("ProductService.onDelete");
+        System.out.println("id = " + id);
+        return productMapper.onDelete(id);
+    } // end onDelete
 
 } // end class

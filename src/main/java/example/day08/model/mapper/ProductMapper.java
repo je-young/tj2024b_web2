@@ -2,10 +2,7 @@ package example.day08.model.mapper;
 
 
 import example.day08.model.dto.ProductDto;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -24,5 +21,9 @@ public interface ProductMapper {
     // [3] 제품수정
     @Update("update productsample set name = #{name} , price = #{price} , comment = #{comment} where id = #{id}")
     public boolean onUpdate(ProductDto productDto);
+
+    // [4] 제품삭제
+    @Delete("delete from productsample where id = #{id}")
+    public boolean onDelete(int id);
 
 } // end interface
