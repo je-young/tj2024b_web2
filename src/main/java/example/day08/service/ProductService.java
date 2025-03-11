@@ -17,4 +17,17 @@ public class ProductService {
         System.out.println("ProductService.onRaad");
         return productMapper.onRaad();
     } // end onRaad
+
+    // [1] 제품등록
+    public boolean onCreate(ProductDto productDto) {
+        return productMapper.onCreate(productDto);
+    } // end onCreate
+
+    // [3] 제품수정
+    public boolean onUpdate(ProductDto productDto) {
+        System.out.println("ProductService.onUpdate");
+        System.out.println("productDto = " + productDto);
+        return productMapper.onUpdate(productDto);
+    }
+
 } // end class
