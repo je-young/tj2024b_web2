@@ -7,8 +7,8 @@ import axios from 'axios';
 
 export default function Example2(props) {
   console.log(props);
-
-  // [1] 이벤트함수
+  
+  //[1] 이벤트 함수 + 이벤트 결과정보(e)
   const onEvent1 = (e) => {
     console.log(e);
   };
@@ -19,7 +19,7 @@ export default function Example2(props) {
     console.log(param1); // 일반 매개변수
   };
 
-  // [3] axios get() 활용한 이벤트함수
+  // [3] axios get test
   const onEvent3 = async () => {
     console.log('===============[1 GET]===============');
     const response1 = await axios.get(
@@ -38,7 +38,7 @@ export default function Example2(props) {
     console.log(response3.data);
   };
 
-  // [4] axios post() 활용한 이벤트함수
+  // [4] axios post test
   const onEvent4 = async () => {
     const obj = {
       userId: 1,
@@ -48,11 +48,11 @@ export default function Example2(props) {
     const response1 = await axios.post(
       'https://jsonplaceholder.typicode.com/posts',
       obj
-    );
+    ); // 매개변수 보내기 : body(JSON) 방식
     console.log(response1.data);
   };
 
-  // [5] axios put() 활용한 이벤트함수
+  // [5] axios put test
   const onEvent5 = async () => {
     const obj = {
       id: 1,
@@ -67,7 +67,7 @@ export default function Example2(props) {
     console.log(response1.data);
   };
 
-  // [6] axios delete() 활용한 이벤트함수
+  // [6] axios delete test
   const onEvent6 = async () => {
     const response1 = await axios.delete(
       'https://jsonplaceholder.typicode.com/posts/1'

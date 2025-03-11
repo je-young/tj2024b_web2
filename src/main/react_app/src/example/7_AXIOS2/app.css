@@ -1,0 +1,38 @@
+/* 전체 선택자 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+/* 전체 구역 */
+#wrap {
+  display: flex;
+}
+
+#wrap > div:nth-child(1) {
+  /* 형제 선택자 : 선택자 > 하위선택자 : nth-child(순번) */
+  /* 만약에 하위 선택자가 여러개 일때 순번으로 선택한다 */
+  /* wrap 선택자 하위에는 사이드바 div 와 본문 div */
+  /* div:nth-child(1) : 사이드바 div */
+  /* div:nth-child(2) : 사이드바 div */
+  width: 15%;
+}
+
+#sideMenu {
+  margin: 50px 10px;
+}
+
+#wrap > div:nth-child(2) {
+  width: 85%;
+  margin: 50px 10px;
+}
