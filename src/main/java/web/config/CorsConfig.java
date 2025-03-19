@@ -6,10 +6,9 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration // 빈 등록 // 스프링 시작될때 해당 클래스를 읽어드린다.
-public class CosConfig implements WebMvcConfigurer {
+public class CorsConfig implements WebMvcConfigurer {
     // (1) implements WebMvcConfigurer : spring mvc 관련 설정값을 수정하는 인터페이스
     // (2) CORS 관련 설정값 수정 , 오버라이딩(재정의) , addCorsMappings 매소드
-
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
