@@ -42,6 +42,9 @@ dependencies {
     // [5] 사용자 정의 AOP 라이브러리
     implementation 'org.springframework.boot:spring-boot-starter-aop'
 
+    // [6] 비크립트(암호화) 라이브러리
+    implementation 'org.springframework.security:spring-security-crypto:6.4.3'
+
 }
 
 tasks.named('test') {

@@ -2,6 +2,7 @@ package web.service;
 
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import web.model.dto.MemberDto;
 import web.model.mapper.MemberMapper;
@@ -27,6 +28,15 @@ public class MemberService {
                 // (3) 업로드된 파일명을 dto 저장
                 memberDto.setMimg(filename);
             }
+            // (4) 비크립트 라이브러리 이용한 비밀번호 암호화하기.
+                // 1. 비크립트 객체 생성
+                BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+                // 2. 암호화할 자료에 .encode( 암호화할자료 );
+                String hashedPassword = passwordEncoder.encode(memberDto.getMpwd());
+            System.out.println("hashedPassword = " + hashedPassword);
+                // 3. 암호화된 값을 dto 에 넣어서 db 처리
+            memberDto.setMpwd( hashedPassword );
+
             boolean result = memberMapper.sigunUp(memberDto);
             System.out.println("result = " + result);
             return result;
@@ -38,9 +48,23 @@ public class MemberService {
         System.out.println("MemberService.login");
         System.out.println("memberDto = " + memberDto);
         //return false;
-        MemberDto result = memberMapper.login( memberDto );
-        System.out.println("result = " + result);
-        return result;
+        //MemberDto result = memberMapper.login( memberDto );
+            // (1) 암호화된 진짜 비밀번호는 DB에 존재.  로그인에 사용된 비밀번호는 암호화 하기전
+            // 진짜(qwe) 비밀번호의 암호화 : $10$7kLAdhSImps7fbcLmH9K7uwo3zVnk1eJ4r7BUI1qnaL.NeQEucaei
+            // 로그인에 입력한 비밀밀호 : qwe
+            // (2) 로그인에서 입력받은 아이디의 암호화비밀번호 가져오기
+        String password = memberMapper.findPassword( memberDto.getMid() );
+        if( password == null  ) return null; // 아이디 조회 결과가 없으면 없는 아이디
+
+            // (3) 로그인에서 입력받은 비밀번호와 암호화된 비밀번호 검증하기
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); // 1. 비크립트 객체 생성
+        boolean result = passwordEncoder.matches( memberDto.getMpwd() , password ); // 2. 로그인에입력받은자료 와 db에 가져온 해시(암호화된)값 검증
+        if( result == false  )  return null; // 비밀번호 검증 실패
+
+            // (4) 로그인에서 입력한 아이디와 비밀번호가 모두 일치하면 회원정보 가져오기
+        MemberDto result2 = memberMapper.login(  memberDto );
+
+        return result2;
     } // end login
 
 } // end class

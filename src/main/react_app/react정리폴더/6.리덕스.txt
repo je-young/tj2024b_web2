@@ -57,3 +57,8 @@
             import { createSlice } from "@reduxjs/toolkit";
             2. createSlice(  ) : 하나의 상태 또는 리듀서 를 만들기 위한 설정 함수.
                 createSlice( { name : 이름  , 초기값 , reducers : { 함수명 : ( state , action )=>{  } , 함수명 : ( state , action )=>{  }  }  } )
+
+    7. 리덕스 상태도 새로고침(F5) 사라진다.
+        해결방안 : 리덕스 퍼시스턴스 사용하여 localStorage 에 상태 유지한다.
+        1. 설치 : npm install redux-persist
+        2. store.jsx
