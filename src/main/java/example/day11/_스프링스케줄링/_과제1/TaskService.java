@@ -12,7 +12,7 @@ import java.util.List;
 public class TaskService {
     private final TaskMapper taskMapper;
 
-    // 30초마다 모든 상품 재고 감소
+    // 30초마다 모든 상품 재고 3개 감소
     @Scheduled(cron = "0/30 * * * * *")
     public void decreaseStockEvery30Seconds() {
         taskMapper.decreaseAllStocks();
@@ -28,11 +28,11 @@ public class TaskService {
         System.out.println("===============================\n");
     }
 
-    // 5분마다 재고 보충 작업
+    // 5분마다 재고 20개 보충 작업
     @Scheduled(cron = "0 0/5 * * * *")
     public void restoreStockEvery5Minutes() {
         int count = taskMapper.restoreStockForLowInventory();
-        System.out.printf("[시스템] %d 10개 이하 제품이 20개보충됨 %n", count);
+        System.out.printf("[시스템] %d 10개 이하 제품이 20개 보충됨 %n", count);
     }
 
 } // end class
