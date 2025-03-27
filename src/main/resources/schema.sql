@@ -49,3 +49,10 @@ CREATE TABLE day11products (
     product_name VARCHAR(255) NOT NULL,        -- 상품명
     stock_quantity INT NOT NULL                -- 재고 수량
 );
+-- ---------------------- day13 ---------------------------------- --
+DROP TABLE if EXISTS day13users;
+CREATE TABLE day13users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    money INT UNSIGNED DEFAULT 0
+);
